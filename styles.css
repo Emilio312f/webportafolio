@@ -773,14 +773,14 @@ a {
 }
 
 .form-group.full-width {
-    grid-column: span 2; /* Asegura que ocupe las dos columnas */
+    grid-column: span 2;
 }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
     padding: 15px;
-    background: rgba(255, 255, 255, 0.1); /* Fondo más claro para mejor contraste */
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: #fff;
@@ -789,8 +789,8 @@ a {
     transition: all 0.3s ease;
     animation: fadeInUp 1s ease forwards;
     animation-delay: var(--delay);
-    width: 100%; /* Asegurar que ocupe todo el espacio */
-    box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form input:focus,
@@ -800,36 +800,27 @@ a {
     box-shadow: 0 0 10px rgba(124, 240, 61, 0.3);
 }
 
-/* Ajuste para el select y sus opciones */
 .contact-form select {
     appearance: none;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%237cf03d"><polygon points="0,0 12,0 6,12"/></svg>') no-repeat right 15px center;
     background-size: 12px;
     padding-right: 40px;
     cursor: pointer;
-    /* Asegurar que las opciones sean visibles */
 }
 
-.contact-form select:focus {
-    border-color: #7cf03d;
-}
-
-/* Estilo para las opciones del select */
 .contact-form select option {
-    background: #2a2f3b; /* Fondo oscuro para las opciones */
-    color: #fff; /* Texto blanco para contraste */
+    background: #2a2f3b;
+    color: #fff;
     padding: 10px;
 }
 
-/* Asegurar que el textarea sea visible */
 .contact-form textarea {
     height: 150px;
     resize: vertical;
-    min-width: 100%; /* Evitar colapso */
-    max-width: 100%; /* Limitar al ancho del contenedor */
+    min-width: 100%;
+    max-width: 100%;
 }
 
-/* Botón */
 .contact-form .btn {
     padding: 15px 40px;
     background: linear-gradient(45deg, #7cf03d, #42b72a);
@@ -840,7 +831,7 @@ a {
     transition: all 0.3s ease;
     width: fit-content;
     margin: 0 auto;
-    grid-column: span 2; /* Asegurar que el botón ocupe las dos columnas */
+    grid-column: span 2;
     position: relative;
     overflow: hidden;
 }
@@ -906,58 +897,204 @@ section.visible {
     transform: translateY(0);
 }
 
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: #7cf03d;
+    cursor: pointer;
+}
+
 /* Responsivo */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    .navbar .logo {
+        font-size: 26px;
+    }
+    .navbar ul li {
+        margin-left: 25px;
+    }
+    .navbar ul li a {
+        font-size: 18px;
+    }
+    .Inicio {
+        padding: 50px 5% 0;
+    }
+    .Inicio-info h1 {
+        font-size: 48px;
+    }
+    .Inicio-info h2 {
+        font-size: 28px;
+    }
+    .home-img .img-box {
+        width: 35vw;
+        height: 35vw;
+    }
+    .portfolio, .services, .contact {
+        padding: 60px 5%;
+    }
+    .portfolio h2, .services h2, .contact h2 {
+        font-size: 38px;
+    }
+}
+
 @media (max-width: 768px) {
-    .portfolio h2,
-    .services h2,
-    .contact h2 {
-        font-size: 36px;
+    .navbar {
+        padding: 15px 5%;
+        position: relative;
     }
-
-    .portfolio-items,
-    .services-items {
-        grid-template-columns: 1fr;
+    .hamburger {
+        display: block;
     }
-
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(31, 36, 45, 0.9);
+        padding: 20px 0;
+    }
+    .navbar ul.show {
+        display: flex;
+    }
+    .navbar ul li {
+        margin: 15px 0;
+        margin-left: 0;
+    }
+    .navbar ul li a {
+        font-size: 18px;
+    }
     .Inicio {
         flex-direction: column;
         text-align: center;
+        height: auto;
+        padding: 50px 5% 20px;
     }
-
+    .Inicio-info h1 {
+        font-size: 40px;
+    }
+    .Inicio-info h2 {
+        font-size: 24px;
+    }
+    .Inicio-info p {
+        font-size: 14px;
+    }
+    .btn-sci {
+        flex-direction: column;
+        gap: 20px;
+    }
     .home-img .img-box {
         width: 50vw;
         height: 50vw;
     }
-
+    .portfolio h2, .services h2, .contact h2 {
+        font-size: 36px;
+    }
+    .portfolio-items, .services-items {
+        grid-template-columns: 1fr;
+    }
     .portfolio-item {
         max-width: 100%;
     }
-
     .image-container {
         height: 200px;
     }
-
     .contact-info {
         flex-direction: column;
-        text-align: left;
+        gap: 20px;
+        text-align: center;
     }
-
     .contact-form {
         grid-template-columns: 1fr;
         padding: 20px;
     }
-
     .form-group.full-width {
         grid-column: span 1;
     }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-        width: 100%;
-    }
-
     .contact-form .btn {
-        grid-column: span 1; /* Ajustar botón en móvil */
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+    .navbar .logo {
+        font-size: 22px;
+    }
+    .navbar ul li a {
+        font-size: 16px;
+    }
+    .hamburger {
+        font-size: 24px;
+    }
+    .Inicio {
+        padding: 40px 3% 20px;
+    }
+    .Inicio-info h1 {
+        font-size: 32px;
+    }
+    .Inicio-info h2 {
+        font-size: 20px;
+    }
+    .Inicio-info p {
+        font-size: 13px;
+    }
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    .sci a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+    }
+    .portfolio, .services, .contact {
+        padding: 40px 3%;
+    }
+    .portfolio h2, .services h2, .contact h2 {
+        font-size: 28px;
+    }
+    .portfolio-item h3, .service-item h3 {
+        font-size: 20px;
+    }
+    .portfolio-item p, .service-item p {
+        font-size: 14px;
+    }
+    .tech-list.static li {
+        font-size: 12px;
+    }
+    .image-container {
+        height: 150px;
+    }
+    .contact-item i {
+        font-size: 24px;
+    }
+    .contact-item p {
+        font-size: 14px;
+    }
+    .contact-form input, .contact-form select, .contact-form textarea {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .contact-form .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
     }
 }
